@@ -1,0 +1,12 @@
+syntax = "proto3";
+
+package gchatpb;
+option go_package=".;gchatpb";
+
+message ChatMessage {
+    string Message = 1;
+}
+
+service GChat {
+    rpc ReceiveAndSend(stream ChatMessage) returns (stream ChatMessage) {};
+}
